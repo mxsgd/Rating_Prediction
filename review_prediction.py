@@ -1,7 +1,6 @@
 import joblib
 import re
 import spacy
-from sklearn.feature_extraction.text import TfidfVectorizer
 
 model = joblib.load('review_prediction_model.joblib')
 tfidf_vectorizer = joblib.load('tfidf_vectorizer.joblib')
