@@ -9,7 +9,7 @@ with open('review_to_predict.txt', encoding='utf-8') as f:
 
 nlp = spacy.load("en_core_web_sm")
 
-review_text = re.sub(r'<[^>]+>|\\n|\.|,|:|&|;|-|"', '', review_text)
+review_text = re.sub(r'<[^>]+>|\\n|\.|,|:|&|;|-|"|!|@|#|\$|%|\^|\*|\(|\)|\[|\]|\{|\}|\?|\’', '', review_text)
 
 tok = nlp(review_text)
 review_proc = ' '.join([token.text for token in tok if not token.is_stop])

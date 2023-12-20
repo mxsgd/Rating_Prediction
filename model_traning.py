@@ -11,20 +11,20 @@ import joblib
 with open('data.csv', 'r', encoding='utf-8', newline='') as csvfile:
     content = list(csv.reader(csvfile))
 
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_md")
 
 reviews = []
 ratings = []
 
 for review in content:
-    review_text = re.sub(r'<[^>]+>|\\n|\.|,|:|&|;|-|"', '', review[0])
+    review_text = re.sub(r'<[^>]+>|\\n|\.|,|:|&|;|-|"|!|@|#|\$|%|\^|\*|\(|\)|\[|\]|\{|\}|\?|\’', '', review[0])
     tok = nlp(review_text)
     review_proc = ' '.join([token.text for token in tok if not token.is_stop])
     reviews.append(review_proc)
     ratings.append(int(review[1]))
 
 y = [[rating] for rating in ratings]
-tfidf_vectorizer = TfidfVectorizer(max_features=16429)
+tfidf_vectorizer = TfidfVectorizer()
 
 X_tfidf = tfidf_vectorizer.fit_transform(reviews)
 
