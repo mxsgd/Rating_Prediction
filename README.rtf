@@ -1,0 +1,21 @@
+This project collects reviews from Goodreads, performs sentiment analysis, and predicts review ratings using machine learning. The process involves web scraping, text processing, and building a linear regression model for rating prediction.
+
+
+Make sure you have the following libraries installed:
+
+requests
+beautifulsoup4
+langdetect
+spacy
+scikit-learn
+joblib
+
+You can install them using the following:
+
+pip install requests beautifulsoup4 langdetect spacy scikit-learn joblib
+
+The collect_data function retrieves reviews from Goodreads URLs and stores them in a CSV file (data.csv).
+
+Prepare your new review text in a file (review_to_predict.txt) and run:
+
+python predict_review.py
